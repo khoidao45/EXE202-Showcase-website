@@ -81,10 +81,10 @@ export default function MapVietnam({
   }, [contentRect, completedLocationIds]);
 
   return (
-    <div className="relative w-full max-w-4xl mx-auto">
+    <div className="relative w-full max-w-screen-2xl mx-auto">
       <div
         ref={containerRef}
-        className="w-full aspect-square relative bg-white rounded-xl shadow overflow-hidden"
+        className="w-full aspect-[3/5] relative bg-white rounded-xl shadow overflow-hidden"
       >
         <Image
           src="/images/map-vietnam.png"

@@ -28,29 +28,30 @@ export default function ImageModal({
 }: ImageModalProps) {
   return (
     <Dialog open={isOpen} onOpenChange={onClose}>
-      <DialogContent className="max-w-4xl w-full">
-        <div className="flex flex-col lg:flex-row gap-6">
-          {/* Image Section */}
-          <div className="lg:w-1/2 relative">
+      <DialogContent className="max-w-4xl w-full max-h-[90vh] flex flex-col">
+        <div className="flex flex-col lg:flex-row gap-6 flex-1 overflow-hidden">
+          {/* Image Section - fixed height */}
+          <div className="lg:w-1/2 flex-shrink-0">
             <Image
               src={image}
               alt={title}
               width={400}
               height={600}
-              className="w-full h-96 lg:h-full object-cover rounded-lg"
+              className="w-full h-96 object-cover rounded-lg"
             />
           </div>
 
-          {/* Content Section */}
-          <div className="lg:w-1/2 flex flex-col">
+          {/* Content Section - scrollable */}
+          <div className="lg:w-1/2 flex flex-col overflow-hidden">
             <DialogHeader>
               <DialogTitle className="text-2xl font-bold text-gray-900">
                 {title}
               </DialogTitle>
             </DialogHeader>
 
-            <div className="flex-1 py-4">
-              <DialogDescription className="text-gray-700 leading-relaxed text-lg">
+            {/* Scrollable description */}
+            <div className="flex-1 py-4 overflow-y-auto pr-3">
+              <DialogDescription className="text-gray-700 leading-relaxed text-base whitespace-pre-wrap">
                 {description}
               </DialogDescription>
             </div>
